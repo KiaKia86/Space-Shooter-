@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url('../images/background.jpg') no-repeat center center/cover;
+    overflow: hidden;
+}
+
+#hud {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 24px;
+}
+
+#spaceship {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: url('../images/spaceship.png') no-repeat center center/cover;
+    transition: transform 0.1s ease;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+}
+
+#game-over h1 {
+    font-size: 48px;
+    color: red;
+    margin-bottom: 20px;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#restart-button:hover {
+    background: #ff6b81;
+}
+
+#leaderboard {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+#leaderboard h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#leaderboard-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.asteroid, .enemy {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('../images/asteroid.png') no-repeat center center/cover;
+    animation: spin 2s linear infinite;
+}
+
+.enemy {
+    background: url('../images/enemy.png') no-repeat center center/cover;
+}
+
+.bullet {
+    position: absolute;
+    width: 5px;
+    height: 20px;
+    background: yellow;
+    animation: shoot 0.5s linear;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes shoot {
+    from { bottom: 60px; }
+    to { bottom: 100vh; }
+}
